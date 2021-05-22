@@ -21,7 +21,7 @@ jobs:
           yarn install --frozen-lockfile
           yarn add @semantic-release/git
       - name: Update README
-        run: oclif-dev readme
+        run: yarn docs
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
