@@ -17,8 +17,9 @@ jobs:
         with:
           node-version: 12
       - name: Install dependencies
-      - run: yarn install --frozen-lockfile
-      - run: yarn install @semantic-release/git
+        run: |
+          yarn install --frozen-lockfile
+          yarn install @semantic-release/git
       - name: Update README
         run: oclif-dev readme
       - name: Release
