@@ -3,6 +3,7 @@ import * as path from "path";
 import { exec, ExecException } from "child_process";
 import * as fs from "fs";
 import { path as __root } from "app-root-path";
+import { download, __repo } from "../utils";
 
 export default class Init extends Command {
   static description = "init a new git repository for your unity project.";
@@ -26,15 +27,26 @@ export default class Init extends Command {
     this.log(`Initializing git repo at ${path.resolve("./")}`);
     await this.command("git init").catch(this.handleError);
 
-    fs.copyFileSync(
-      path.resolve(__root, "files/gitignore"),
-      path.resolve("./.gitignore")
-    );
-    fs.copyFileSync(
-      path.resolve(__root, "files/gitattributes"),
-      path.resolve("./.gitattributes")
-    );
+    // fs.copyFileSync(
+    //   path.resolve(__root, "files/gitignore"),
+    //   path.resolve("./.gitignore")
+    // );
+    // fs.copyFileSync(
+    //   path.resolve(__root, "files/gitattributes"),
+    //   path.resolve("./.gitattributes")
+    // );
 
+    this.log("Downloading .gitignore");
+    await download(`${__repo}/gitignore`, path.resolve("./.gitignore")).catch(
+      this.handleError
+    );
+    this.log("Downloading .gitattributes");
+    await download(
+      `${__repo}/gitattributes`,
+      path.resolve("./.gitattributes")
+    ).catch(this.handleError);
+
+    this.log("Initializing git lfs");
     await this.command("git lfs install").catch(this.handleError);
   }
 
