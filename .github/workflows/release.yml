@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --frozen-lockfile
-          yarn install @semantic-release/git
+          yarn add @semantic-release/git
       - name: Update README
         run: oclif-dev readme
       - name: Release
