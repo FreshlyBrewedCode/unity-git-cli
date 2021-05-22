@@ -37,7 +37,7 @@ $ npm install -g unity-git
 $ unity-git COMMAND
 running command...
 $ unity-git (-v|--version|version)
-unity-git/1.0.0 darwin-x64 node-v14.15.1
+unity-git/1.1.0 linux-x64 node-v12.22.1
 $ unity-git --help [COMMAND]
 USAGE
   $ unity-git COMMAND
@@ -78,5 +78,5 @@ EXAMPLE
   $ unity-git init
 ```
 
-_See code: [src/commands/init.ts](https://github.com/FreshlyBrewedCode/unity-git-cli/blob/v1.0.0/src/commands/init.ts)_
+_See code: [src/commands/init.ts](https://github.com/FreshlyBrewedCode/unity-git-cli/blob/v1.1.0/src/commands/init.ts)_
 <!-- commandsstop -->
